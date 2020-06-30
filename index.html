@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+		Tic Tac Toe with Minimax AI Algorithm
+		Author: Akash Tadwai
+		Year: 2020
+		-->
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="Akash Tadwai" name="author" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link type="text/css" rel="stylesheet" href="styles/normalize.css" />
+        <link type="text/css" rel="stylesheet" href="styles/background.css" />
+        <link type="text/css" rel="stylesheet" href="styles/board.css" />
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="app/script.js"></script>
+        <title>Minimax Algorithm</title>
+    </head>
+
+    <body>
+
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+
+
+        <header>
+            <p>Minimax Algorithm</p>
+        </header>
+        div<id="title">
+            
+            <p id="message"></p>
+            <table id="tab-tic-tac-toe" cellspacing="0">
+                <tr>
+                    <td id="00" onclick="clickedCell(this)"></td>
+                    <td id="01" onclick="clickedCell(this)"></td>
+                    <td id="02" onclick="clickedCell(this)"></td>
+                </tr>
+                <tr>
+                    <td id="10" onclick="clickedCell(this)"></td>
+                    <td id="11" onclick="clickedCell(this)"></td>
+                    <td id="12" onclick="clickedCell(this)"></td>
+                </tr>
+                <tr>
+                    <td id="20" onclick="clickedCell(this)"></td>
+                    <td id="21" onclick="clickedCell(this)"></td>
+                    <td id="22" onclick="clickedCell(this)"></td>
+                </tr>
+            </table>
+            <br><br>
+            <input type="button" value="Start AI" id="bnt-restart" onclick="restartBnt(this)" />
+            <br />
+            <footer>
+                <p>Read more on: <a href="https://github.com/akashtadwai/Tic-Tac-Toe/blob/master/README.md">
+                        <img border="0" alt="Minimax" src="images/GitHub-Mark-64px.png" width="100" height="100">
+                    </a></p>
+            </footer>
+            </div>
+    </body>
