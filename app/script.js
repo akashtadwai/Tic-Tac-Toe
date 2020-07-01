@@ -164,7 +164,7 @@ function aiTurn() {
 /* main */
 function clickedCell(cell) {
 
-    var button = document.getElementById("bnt-restart");
+    var button = document.getElementById("bnt-firststart");
     button.disabled = true;
     var conditionToContinue = gameOverAll(board) == false && emptyCells(board).length > 0;
 
@@ -173,8 +173,8 @@ function clickedCell(cell) {
         var y = cell.id.split("")[1];
         var move = setMove(x, y, human);
         if (move == true) {
-            cell.innerHTML = "X";
-            cell.style.color = "blue";
+            $(cell).html("X");
+            $(cell).css("color", "blue");
             if (conditionToContinue)
                 aiTurn();
         }
@@ -202,45 +202,45 @@ function clickedCell(cell) {
             lines = [[2, 0], [1, 1], [0, 2]];
 
         for (var i = 0; i < lines.length; i++) {
-            cell = document.getElementById(String(lines[i][0]) + String(lines[i][1]));
-            cell.style.color = "#78f00f";
+            var pos = String(lines[i][0]) + String(lines[i][1]);
+            cell = $('#' + pos);
+            $(cell).css("color", "#78f00f");
             $(cell).css("background-color", "#333");
         }
-
-        msg = document.getElementById("message");
-        msg.innerHTML = "You lose!";
+        msg = $("#message");
+        msg.html("You lose!");
     }
     if (emptyCells(board).length == 0 && !gameOverAll(board)) {
-        var msg = document.getElementById("message");
-        msg.innerHTML = "Draw!";
-    }
-    if (gameOverAll(board) == true || emptyCells(board).length == 0) {
-        button.value = "Restart";
-        button.disabled = false;
+        var msg = msg = $("#message");
+        msg.html("Draw");
     }
 }
 
 /* Restart the game*/
-function restartBnt(button) {
+function firstStart(button) {
     if (button.value == "Start AI") {
         aiTurn();
         button.disabled = true;
     }
-    else if (button.value == "Restart") {
-        var htmlBoard;
-        var msg;
-        for (var x = 0; x < 3; x++) {
-            for (var y = 0; y < 3; y++) {
-                board[x][y] = 0;
-                var pos = String(x) + String(y);
-                htmlBoard = $('#' + pos);
-                $(htmlBoard).css("color", "#444");
-                $(htmlBoard).css("background-color", "#e8d6d6");
-                $(htmlBoard).html("");
-            }
+}
+
+function restartBnt(button) {
+    var htmlBoard;
+    var msg;
+    for (var x = 0; x < 3; x++) {
+        for (var y = 0; y < 3; y++) {
+            board[x][y] = 0;
+            var pos = String(x) + String(y);
+            htmlBoard = $('#' + pos);
+            $(htmlBoard).css("color", "#444");
+            $(htmlBoard).css("background-color", "#e8d6d6");
+            $(htmlBoard).html("");
         }
-        button.value = "Start AI";
-        msg = $('#message');
-        $(msg).html("");
     }
+    var table = $("#tic-tac-toe");
+    $(table).css("border-radius", "20px");
+    var btn1 = document.getElementById("bnt-firststart");
+    btn1.disabled = false;
+    msg = $('#message');
+    $(msg).html("");
 }

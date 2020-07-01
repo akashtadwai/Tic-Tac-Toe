@@ -68,8 +68,7 @@ a:visited {
     color: #444;
     background: #e8d6d6;
     font-size: 5em;
-    font-family: Sans;
-
+    font-family: 'Open Sans', sans-serif;
     margin-left: auto;
     margin-right: auto;
     width: 360px;
@@ -107,31 +106,40 @@ a:visited {
 }
 
 /* ****************** Restart Button ****************** */
-#bnt-restart {
-    display: block;
-    padding: 10px;
+#bnt-restart,
+#bnt-firststart {
+    position: relative;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
+    display: block;
+    padding: 7px;
+    width: 150px;
     background: #e50ff0;
     font-size: 1.5em;
     color: rgb(2, 8, 14);
-    border: none;
     border-radius: 6px;
     cursor: pointer;
 }
 
+#bnt-firststart:hover,
 #bnt-restart:hover {
     background: #1DC5FF;
 }
 
-#bnt-restart:active {
+#bnt-restart:active,
+#bnt-firststart:active {
     background: #0787B3;
 }
 
-#bnt-restart:disabled {
+#bnt-firststart:disabled {
     color: #444;
     background: #CECECE;
+}
+
+footer {
+    position: relative;
+    bottom: 25px;
 }
 
 footer #color {
