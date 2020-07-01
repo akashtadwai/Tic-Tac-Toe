@@ -13,49 +13,84 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link type="text/css" rel="stylesheet" href="styles/normalize.css" />
         <link type="text/css" rel="stylesheet" href="styles/board.css" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,900italic+Open+Sans" rel="stylesheet">
 
         <title>Minimax Algorithm</title>
     </head>
 
     <body>
+        <div id="how" onclick="clicked(this)"><span id="howto">HOW TO?</span></div>
 
-        <header>
-            <h1>
-                <span id="tic">Tic</span> - <span id="tac">Tac</span> - <span id="toe"> Toe </span>
-            </h1>
-        </header>
-        <p id="message"></p>
+        <!-- Instructions -->
 
-        <table id="tic-tac-toe" cellspacing="0">
-            <tr>
-                <td id="00" onclick="clickedCell(this)"></td>
-                <td id="01" onclick="clickedCell(this)"></td>
-                <td id="02" onclick="clickedCell(this)"></td>
-            </tr>
-            <tr>
-                <td id="10" onclick="clickedCell(this)"></td>
-                <td id="11" onclick="clickedCell(this)"></td>
-                <td id="12" onclick="clickedCell(this)"></td>
-            </tr>
-            <tr>
-                <td id="20" onclick="clickedCell(this)"></td>
-                <td id="21" onclick="clickedCell(this)"></td>
-                <td id="22" onclick="clickedCell(this)"></td>
-            </tr>
-        </table>
+        <div class="overlay" id="modal">
+            <div class="content">
+                <div>
+                    <p>This is a Tic Tac Toe game. The game goes like this: </p>
+                    <ul>
+                        <li>1. The game is played on a grid that's 3 squares by 3 squares.</li>
 
-        <br><br>
-        <input type="button" value="Start AI" id="bnt-firststart" onclick="firstStart(this)" /> &nbsp &nbsp
-        <input type="button" value="Restart game" id="bnt-restart" onclick="restartBnt(this)" />
-        <footer>
-            <p>
-                <span id="color">Read more on: </span>
-                <a href="https://github.com/akashtadwai/Tic-Tac-Toe/blob/master/README.md" target="_blank">
-                    <img src="images/GitHub-Mark-120px-plus.png" alt="Minimax" width="60" height="60" border="0">
-                </a>
-            </p>
-        </footer>
-        <script type="text/javascript" src="app/script.js"></script>
+                        <li>2. You are <span id="X">X</span>, your friend (or the computer) is <span
+                                id="O">O</span>.<br>
+                            Players take turns, putting their marks in empty squares.
+                        </li>
+
+                        <li>3. If you want to start directly click on any cell of <br>
+                             the board else click Start AI.</li>
+                        <li>3. The first player to get 3 of their marks in a <br> row(up, down, across, or diagonally)
+                            is the winner.</li>
+
+                        <li>4. When all 9 squares are full, the game is over.<br> If no player has 3 marks in a row, the
+                            game ends in a tie.</li>
+                    </ul>
+                    <p>So, Are you ready?</p><br>
+                    <a class="close" href="#">Got It!</a>
+                    <img src="images/sample_play.gif" alt="Sample Play" width="auto" height="auto">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="game">
+            <!-- Heading -->
+            <header>
+                <h1>
+                    <span id="tic">Tic</span> - <span id="tac">Tac</span> - <span id="toe"> Toe </span>
+                </h1>
+            </header>
+            <p id="message"></p>
+
+            <table id="tic-tac-toe" cellspacing="0">
+                <tr>
+                    <td id="00" onclick="clickedCell(this)"></td>
+                    <td id="01" onclick="clickedCell(this)"></td>
+                    <td id="02" onclick="clickedCell(this)"></td>
+                </tr>
+                <tr>
+                    <td id="10" onclick="clickedCell(this)"></td>
+                    <td id="11" onclick="clickedCell(this)"></td>
+                    <td id="12" onclick="clickedCell(this)"></td>
+                </tr>
+                <tr>
+                    <td id="20" onclick="clickedCell(this)"></td>
+                    <td id="21" onclick="clickedCell(this)"></td>
+                    <td id="22" onclick="clickedCell(this)"></td>
+                </tr>
+            </table>
+
+            <br>
+            <input type="button" value="Start AI" id="bnt-firststart" onclick="firstStart(this)" /> &nbsp &nbsp
+            <input type="button" value="Restart game" id="bnt-restart" onclick="restartBnt(this)" />
+            <footer>
+
+                <p>
+                    <span id="color">Read more on: </span>
+                    <a href="https://github.com/akashtadwai/Tic-Tac-Toe/blob/master/README.md" target="_blank">
+                        <img src="images/GitHub-Mark-120px-plus.png" alt="Minimax" width="60" height="60" border="0">
+                    </a>
+                </p>
+            </footer>
+        </div>
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script type="text/javascript" src="app/script.js"></script>
     </body>

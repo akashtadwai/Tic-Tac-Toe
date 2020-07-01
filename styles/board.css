@@ -1,10 +1,92 @@
 html,
 body {
     height: 100%;
+    width: 96%;
     background-color: #333;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+/***** Instructions ****/
+
+#how {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    left: 100px;
+    top: 50px;
+    color: #fff;
+    font-weight: normal;
+    font-family: lato;
+    text-decoration: underline;
+}
+
+#howto {
+    background: #1F253D;
+    padding: 5px;
+}
+
+.overlay {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    background: auto;
+    position: absolute;
+    color: #1DC5FF;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+}
+
+.content>div a {
+    font-size: 0.8em;
+    background: #1F253D;
+    position: relative;
+    left: 580px;
+    text-align: center;
+    color: #95a5a6;
+    padding: 0.5em 2em;
+    margin-bottom: 50px;
+    border-radius: 3px;
+}
+
+.content img {
+    position: absolute;
+    top: 100px;
+}
+
+p,
+li {
+    font-size: 14pt;
+    left: 350px;
+    font-weight: italic;
+    color: #09eaea;
+    font-family: lato;
+    text-align: center;
+    position: relative;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+ul li {
+    margin-bottom: 20px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 400px;
+    float: center;
+    text-align: left;
+    color: #d4cbd2;
+}
+
+#O {
+    color: red;
+}
+
+#X {
+    color: green;
 }
 
 header {
@@ -17,6 +99,7 @@ header {
     margin-top: 0px;
     margin-bottom: 60px;
     position: relative;
+    top: -3px;
     width: 100%;
 }
 
@@ -37,18 +120,7 @@ h1 #toe {
 
 }
 
-p {
-    font-size: 14pt;
-    font-weight: bold;
-    color: #ead009;
-    font-family: Sans;
-    text-align: center;
-    position: relative;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
+
 
 a {
     color: #00AEEA;
@@ -63,10 +135,18 @@ a:visited {
     color: rgb(234, 55, 0);
 }
 
+#message {
+    position: relative;
+    left: 0px;
+    bottom: 20px;
+}
+
 /* ****************** Table style ****************** */
 #tic-tac-toe {
     color: #444;
     background: #e8d6d6;
+    position: relative;
+    top: -15px;
     font-size: 5em;
     font-family: 'Open Sans', sans-serif;
     margin-left: auto;
@@ -137,20 +217,26 @@ a:visited {
     background: #CECECE;
 }
 
+/***** Footer ******/
 footer {
-    position: relative;
-    bottom: 25px;
+    padding-bottom: 60px;
+    position: absolute;
+    bottom: 50px;
+    margin-left: auto;
+    margin-bottom: 20px;
+    left: 10px;
+    margin-right: auto;
 }
 
 footer #color {
     color: rgb(0, 248, 181);
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.2em;
-    padding-right: 2px;
+    position: relative;
 
 }
 
 footer a {
     position: relative;
-    top: 20px;
+    top: 30px;
 }

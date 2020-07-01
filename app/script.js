@@ -5,10 +5,24 @@ var board = [
     [0, 0, 0],
     [0, 0, 0],
 ];
-
+$(function () {
+    $('.content').hide();
+});
 
 var AI = +1;
 var human = -1;
+
+function clicked(help) {
+    $('.game').hide();
+    $('#how').hide();
+    $('.content').fadeIn(1000);
+
+}
+$('.close').click(function () {
+    $('.content').hide();
+    $('.game').show();
+    $('#how').show();
+});
 
 "use strict"
 
