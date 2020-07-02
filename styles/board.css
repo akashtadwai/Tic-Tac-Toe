@@ -3,6 +3,11 @@ body {
     height: 100%;
     width: 96%;
     background-color: #333;
+    background: url("../images/back.jpg") repeat 0 0;
+    min-height: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -98,7 +103,8 @@ ul li {
     color: green;
 }
 
-#O {
+#O,
+#ai {
     color: red;
 }
 
