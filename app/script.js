@@ -7,7 +7,6 @@ var board = [
 ];
 $(function () {
     $('.content').hide();
-
 });
 
 var AI = +1;
@@ -17,7 +16,6 @@ function clicked(help) {
     $('.game').hide();
     $('#how').hide();
     $('.content').fadeIn(1000);
-
 }
 $('.close').click(function () {
     $('.content').hide();
@@ -113,28 +111,30 @@ function emptyCells(state) {
     return cells;
 }
 
-/* *** AI function that chooses the best move *** */
+/* *** AI function that chooses the best move with alpha-beta pruning*** */
 
-function minimax(state, depth, player) {
+// Read more on https://github.com/akashtadwai/Tic-Tac-Toe/blob/master/README.md
+
+function minimax(state, depth, alpha, beta, player) {
     var best;
+
+    if (depth == 0 || gameOverAll(state)) {
+        var points = evaluate(state);
+        return [-1, -1, points];
+    }
 
     if (player == AI) {
         best = [-1, -1, -Infinity];
     }
     else {
-        best = [-1, -1, +Infinity];
-    }
-
-    if (depth == 0 || gameOverAll(state)) {
-        var score = evaluate(state);
-        return [-1, -1, score];
+        best = [-1, -1, Infinity];
     }
 
     $.each(emptyCells(state), function (index, cell) {
         var x = cell[0];
         var y = cell[1];
         state[x][y] = player;
-        var score = minimax(state, depth - 1, -player);
+        var score = minimax(state, depth - 1, alpha, beta, -player);
         state[x][y] = 0;
         score[0] = x;
         score[1] = y;
@@ -142,10 +142,15 @@ function minimax(state, depth, player) {
         if (player == AI) {
             if (score[2] > best[2])
                 best = score;
+            alpha = Math.max(alpha, score[2]);
         }
         else {
             if (score[2] < best[2])
                 best = score;
+            beta = Math.min(beta, score[2]);
+        }
+        if (beta <= alpha) {
+            return false;
         }
     });
 
@@ -163,7 +168,7 @@ function aiTurn() {
         y = parseInt(Math.random() * 3);
     }
     else {
-        move = minimax(board, emptyCells(board).length, AI);
+        move = minimax(board, emptyCells(board).length, -Infinity, Infinity, AI);
         x = move[0];
         y = move[1];
     }
