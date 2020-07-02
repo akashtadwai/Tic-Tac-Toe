@@ -3,7 +3,7 @@
 This is an implementation of Minimax AI Algorithm with alpha-beta pruning on Tic-Tac-Toe game. Try it [here]().
 
 <p align="center">
-	<img src="images/game.png" alt="Sample Game"></img>
+	<img src="images/game.png" alt="Sample Game" width=40% height=40%></img>
 </p>
 
 ## What is Minimax and alpha-beta pruning
@@ -48,7 +48,7 @@ function minimax(state, depth, alpha, beta, player)
 
 ```
 
-
+<br>
 ## Game Tree
 
 The game tree is clearly shown below, if it's the maximizer's turn, it would choose the path shown in the __optimal game play__ and some branches are discarded as ```alpha <= beta``` .  
