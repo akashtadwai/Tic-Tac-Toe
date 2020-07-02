@@ -8,14 +8,14 @@ body {
     padding: 0;
 }
 
-/***** Instructions ****/
+/* Instrcutions */
 
 #how {
     z-index: 1;
     cursor: pointer;
-    position: relative;
-    left: 100px;
-    top: 50px;
+    position: absolute;
+    left: 70px;
+    top: 10px;
     color: #fff;
     font-weight: normal;
     font-family: lato;
@@ -28,7 +28,7 @@ body {
 }
 
 .overlay {
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 20px;
     background: auto;
     position: absolute;
@@ -42,7 +42,8 @@ body {
     font-size: 0.8em;
     background: #1F253D;
     position: relative;
-    left: 580px;
+    cursor: pointer;
+    left: 5px;
     text-align: center;
     color: #95a5a6;
     padding: 0.5em 2em;
@@ -50,9 +51,21 @@ body {
     border-radius: 3px;
 }
 
+.content>div a:hover {
+    background-color: #f20042;
+}
+
+.content p {
+    text-align: center;
+    left: 0%;
+}
+
 .content img {
-    position: absolute;
-    top: 100px;
+    position: relative;
+    bottom: 8px;
+    left: 15%;
+    vertical-align: middle;
+    border: 2px solid orange;
 }
 
 p,
@@ -75,18 +88,25 @@ ul li {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    left: 400px;
+    left: 0%;
     float: center;
     text-align: left;
     color: #d4cbd2;
+}
+
+#X {
+    color: green;
 }
 
 #O {
     color: red;
 }
 
-#X {
-    color: green;
+
+/* Game */
+
+.game {
+    border: 10px;
 }
 
 header {
@@ -104,6 +124,7 @@ header {
 }
 
 h1 {
+    padding-top: 15px;
     color: rgb(214, 213, 228);
 }
 
@@ -119,8 +140,6 @@ h1 #toe {
     color: #e2b8c5;
 
 }
-
-
 
 a {
     color: #00AEEA;
@@ -200,11 +219,12 @@ a:visited {
     color: rgb(2, 8, 14);
     border-radius: 6px;
     cursor: pointer;
+    z-index: 1;
 }
 
 #bnt-firststart:hover,
 #bnt-restart:hover {
-    background: #1DC5FF;
+    background: rgb(234, 55, 0);
 }
 
 #bnt-restart:active,
@@ -217,15 +237,13 @@ a:visited {
     background: #CECECE;
 }
 
-/***** Footer ******/
 footer {
-    padding-bottom: 60px;
-    position: absolute;
-    bottom: 50px;
-    margin-left: auto;
-    margin-bottom: 20px;
-    left: 10px;
-    margin-right: auto;
+    position: relative;
+    width: 100%;
+    left: 0em;
+    bottom: 25px;
+    margin-top: 30px;
+    text-align: center;
 }
 
 footer #color {

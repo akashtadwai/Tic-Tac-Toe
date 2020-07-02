@@ -7,6 +7,7 @@ var board = [
 ];
 $(function () {
     $('.content').hide();
+
 });
 
 var AI = +1;
