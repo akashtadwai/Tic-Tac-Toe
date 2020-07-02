@@ -42,19 +42,21 @@ function minimax(state, depth, alpha, beta, player)
 
   		if(player = min) then
    			if score < best.score then best = [move,score]
-   			beta = min(beta,score)
+			   beta = min(beta,score)
+
+		if (alpha<=beta)	break;
 
   return best
 
-```
+```  
+  
 
-<br>
 ## Game Tree
 
 The game tree is clearly shown below, if it's the maximizer's turn, it would choose the path shown in the __optimal game play__ and some branches are discarded as ```alpha <= beta``` .  
 
 <p align="center">
-	<img src="images/alpha-beta-pruning.png" alt="Game Tree" ></img>
+	<img src="images/alpha-beta-pruning.png" alt="Game Tree" height=80% width=80% ></img>
 </p>
 
 <br>
@@ -62,7 +64,7 @@ The game tree is clearly shown below, if it's the maximizer's turn, it would cho
 ## Simplified game tree
 
 <p align="center">
-	<img src="images/simplified-game-tree.png" alt="Simplified-game-tree"></img>
+	<img src="images/simplified-game-tree.png" alt="Simplified-game-tree" height=80% width=80%></img>
 </p>
 
 That tree has 11 nodes. The full game tree has 549.946 nodes! You can test it putting a static global variable in your program and incrementing it for each minimax function call per turn.
@@ -74,5 +76,4 @@ References:
 
 * **Wikipedia**: <https://en.wikipedia.org/wiki/Minimax>
 * **Wikipedia**: <https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning>
-
 * **GeeksForGeeks**: <https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/>
