@@ -5,13 +5,15 @@ var board = [
     [0, 0, 0],
     [0, 0, 0],
 ];
+var AI = +1;
+var human = -1;
+var multi_player = false;
+var first = true;
+
 $(function () {
     $('.content').hide();
     $('#invalid').hide();
 });
-
-var AI = +1;
-var human = -1;
 
 function clicked(help) {
     $('.game').hide();
@@ -165,7 +167,6 @@ function aiTurn() {
     var x, y;
     var move;
     var cell;
-
     if (emptyCells(board).length == 9) {
         x = parseInt(Math.random() * 3);
         y = parseInt(Math.random() * 3);
@@ -184,64 +185,104 @@ function aiTurn() {
     }
 }
 
+
+function filledRows() {
+    var lines;
+    var cell;
+    if (board[0][0] == board[0][1] && board[0][2] == board[0][1] && board[0][0] != 0)
+        lines = [[0, 0], [0, 1], [0, 2]];
+    else if (board[1][0] == board[1][1] && board[1][2] == board[1][1] && board[1][1] != 0)
+        lines = [[1, 0], [1, 1], [1, 2]];
+    else if (board[2][0] == board[2][1] && board[2][2] == board[2][1] && board[2][2] != 0)
+        lines = [[2, 0], [2, 1], [2, 2]];
+    else if (board[0][0] == board[1][0] && board[2][0] == board[1][0] && board[0][0] != 0)
+        lines = [[0, 0], [1, 0], [2, 0]];
+    else if (board[0][1] == board[1][1] && board[2][1] == board[1][1] && board[1][1] != 0)
+        lines = [[0, 1], [1, 1], [2, 1]];
+    else if (board[0][2] == board[1][2] && board[2][2] == board[1][2] && board[2][2] != 0)
+        lines = [[0, 2], [1, 2], [2, 2]];
+    else if (board[0][0] == board[1][1] && board[2][2] == board[1][1] && board[1][1] != 0)
+        lines = [[0, 0], [1, 1], [2, 2]];
+    else if (board[2][0] == board[1][1] && board[0][2] == board[1][1] && board[1][1] != 0)
+        lines = [[2, 0], [1, 1], [0, 2]];
+    for (var i = 0; i < lines.length; i++) {
+        var pos = String(lines[i][0]) + String(lines[i][1]);
+        cell = $('#' + pos);
+        $(cell).css("color", "#78f00f");
+        $(cell).css("background-color", "#333");
+    }
+}
+
 /* main */
 function clickedCell(cell) {
 
     var button = document.getElementById("bnt-firststart");
     button.disabled = true;
     var conditionToContinue = gameOverAll(board) == false && emptyCells(board).length > 0;
-
+    var move;
     if (conditionToContinue == true) {
         var x = cell.id.split("")[0];
         var y = cell.id.split("")[1];
-        var move = setMove(x, y, human);
+        if (multi_player == true) {
+            if (first == true) {
+                move = setMove(x, y, human);
+            }
+            else {
+                move = setMove(x, y, AI);
+            }
+
+        }
+        else if (multi_player == false) {
+            move = setMove(x, y, human);
+        }
+
         if (move == false) {
             $('.heading').hide();
             $('#invalid').fadeIn(100);
             $('#invalid').fadeOut(900);
         }
-        if (move == true) {
-            $(cell).html("X");
-            $(cell).css("color", "blue");
-            if (conditionToContinue)
-                aiTurn();
+        if (multi_player == false) {
+            if (move == true) {
+                $(cell).html("X");
+                $(cell).css("color", "blue");
+                if (conditionToContinue)
+                    aiTurn();
+            }
         }
-
+        else if (multi_player == true) {
+            if (first == true && move == true) {
+                first = false;
+                $(cell).html("X");
+                $(cell).css("color", "blue");
+            }
+            else if (first == false && move == true) {
+                first = true;
+                $(cell).html("O");
+                $(cell).css("color", "red");
+            }
+        }
     }
+    var msg;
     if (gameOver(board, AI)) {
-        var lines;
-        var cell;
-        var msg;
-
-        if (board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 1)
-            lines = [[0, 0], [0, 1], [0, 2]];
-        else if (board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 1)
-            lines = [[1, 0], [1, 1], [1, 2]];
-        else if (board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 1)
-            lines = [[2, 0], [2, 1], [2, 2]];
-        else if (board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 1)
-            lines = [[0, 0], [1, 0], [2, 0]];
-        else if (board[0][1] == 1 && board[1][1] == 1 && board[2][1] == 1)
-            lines = [[0, 1], [1, 1], [2, 1]];
-        else if (board[0][2] == 1 && board[1][2] == 1 && board[2][2] == 1)
-            lines = [[0, 2], [1, 2], [2, 2]];
-        else if (board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 1)
-            lines = [[0, 0], [1, 1], [2, 2]];
-        else if (board[2][0] == 1 && board[1][1] == 1 && board[0][2] == 1)
-            lines = [[2, 0], [1, 1], [0, 2]];
-
-        for (var i = 0; i < lines.length; i++) {
-            var pos = String(lines[i][0]) + String(lines[i][1]);
-            cell = $('#' + pos);
-            $(cell).css("color", "#78f00f");
-            $(cell).css("background-color", "#333");
+        filledRows();
+        if (multi_player == true) {
+            msg = $("#message");
+            msg.html("O won!");
         }
-        msg = $("#message");
-        msg.html("You lose!");
+        else {
+            msg = $("#message");
+            msg.html("You lose!");
+            $('#message').show();
+        }
     }
-    if (emptyCells(board).length == 0 && !gameOverAll(board)) {
-        var msg = msg = $("#message");
-        msg.html("Draw");
+    else if (emptyCells(board).length == 0 && !gameOverAll(board)) {
+        msg = $("#message");
+        msg.html("Draw!");
+    }
+    else if (gameOverAll(board)) {
+        filledRows();
+        msg = $("#message");
+        msg.html("X won!");
     }
 }
 
@@ -259,11 +300,12 @@ function multiPlayer(button) {
     var aiStart = document.getElementById("bnt-firststart");
     aiStart.disabled = true;
     button.disabled = true;
-
-
+    multi_player = true;
 }
 
 function restartBnt(button) {
+    first = true;
+    multi_player = false;
     var htmlBoard;
     var msg;
     for (var x = 0; x < 3; x++) {
@@ -277,8 +319,6 @@ function restartBnt(button) {
             $('.heading').show();
         }
     }
-    var table = $("#tic-tac-toe");
-    $(table).css("border-radius", "20px");
     var btn1 = document.getElementById("bnt-firststart");
     var bnt2 = document.getElementById("multiplayer");
     bnt2.disabled = false;
