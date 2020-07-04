@@ -58,12 +58,16 @@
             <!-- Heading -->
             <header>
                 <h1>
-                    <span id="tic">Tic</span> - <span id="tac">Tac</span> - <span id="toe"> Toe </span>
+                    <div class="heading"> <span id="tic">Tic</span> - <span id="tac">Tac</span> - <span id="toe"> Toe
+                        </span> </div> <span id="invalid"> Invalid Selection</span>
+
                 </h1>
+
             </header>
             <p id="message"></p>
 
-            <table id="tic-tac-toe" cellspacing="0">
+
+            <table id="tic-tac-toe" cellspacing="0" style="width:auto">
                 <tr>
                     <td id="00" onclick="clickedCell(this)"></td>
                     <td id="01" onclick="clickedCell(this)"></td>
@@ -82,8 +86,13 @@
             </table>
 
             <br>
-            <input type="button" value="Start AI" id="bnt-firststart" onclick="firstStart(this)" /> &nbsp &nbsp
-            <input type="button" value="Restart" id="bnt-restart" onclick="restartBnt(this)" />
+            <div class="players">
+                <input type="button" class="buttons" value="Start AI" id="bnt-firststart" onclick="firstStart(this)" />
+                &nbsp &nbsp
+                <input type="button" class="buttons" value="Play with Friend" id="multiplayer"
+                    onclick="multiPlayer(this)" />
+            </div> &nbsp &nbsp
+            <input type="button" value="Restart" class="buttons" id="bnt-restart" onclick="restartBnt(this)" />
 
             <footer>
                 <span id="color">Read more on: </span>
@@ -93,6 +102,7 @@
 
             </footer>
         </div>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
         <script type="text/javascript" src="app/script.js"></script>
     </body>

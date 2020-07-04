@@ -7,6 +7,7 @@ var board = [
 ];
 $(function () {
     $('.content').hide();
+    $('#invalid').hide();
 });
 
 var AI = +1;
@@ -192,12 +193,18 @@ function clickedCell(cell) {
         var x = cell.id.split("")[0];
         var y = cell.id.split("")[1];
         var move = setMove(x, y, human);
+        if (move == false) {
+            $('.heading').hide();
+            $('#invalid').fadeIn(100);
+            $('#invalid').fadeOut(900);
+        }
         if (move == true) {
             $(cell).html("X");
             $(cell).css("color", "blue");
             if (conditionToContinue)
                 aiTurn();
         }
+
     }
     if (gameOver(board, AI)) {
         var lines;
@@ -238,10 +245,20 @@ function clickedCell(cell) {
 
 /* Restart the game*/
 function firstStart(button) {
+    var bnt2 = document.getElementById("multiplayer");
+    bnt2.disabled = true;
     if (button.value == "Start AI") {
         aiTurn();
         button.disabled = true;
     }
+}
+
+function multiPlayer(button) {
+    var aiStart = document.getElementById("bnt-firststart");
+    aiStart.disabled = true;
+    button.disabled = true;
+
+
 }
 
 function restartBnt(button) {
@@ -255,11 +272,14 @@ function restartBnt(button) {
             $(htmlBoard).css("color", "#444");
             $(htmlBoard).css("background-color", "#e8d6d6");
             $(htmlBoard).html("");
+            $('.heading').show();
         }
     }
     var table = $("#tic-tac-toe");
     $(table).css("border-radius", "20px");
     var btn1 = document.getElementById("bnt-firststart");
+    var bnt2 = document.getElementById("multiplayer");
+    bnt2.disabled=false;
     btn1.disabled = false;
     msg = $('#message');
     $(msg).html("");

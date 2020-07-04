@@ -104,7 +104,8 @@ ul li {
 }
 
 #O,
-#ai {
+#ai,
+#invalid {
     color: red;
 }
 
@@ -172,12 +173,13 @@ a:visited {
     background: #e8d6d6;
     position: relative;
     top: -15px;
+    left:12px;
     font-size: 5em;
     font-family: 'Open Sans', sans-serif;
     margin-left: auto;
     margin-right: auto;
-    width: 360px;
-    height: 350px;
+    width: auto;
+    height: auto;
     text-align: center;
     border: 1px solid #CECECE;
     border-radius: 20px;
@@ -211,8 +213,8 @@ a:visited {
 }
 
 /* ****************** Restart Button ****************** */
-#bnt-restart,
-#bnt-firststart {
+
+.buttons {
     position: relative;
     text-align: center;
     margin-left: auto;
@@ -228,17 +230,27 @@ a:visited {
     z-index: 1;
 }
 
-#bnt-firststart:hover,
-#bnt-restart:hover {
+.buttons:hover {
     background: rgb(234, 55, 0);
 }
 
-#bnt-restart:active,
-#bnt-firststart:active {
+.players #multiplayer {
+    width: 180px;
+}
+
+.players #bnt-firststart,
+.players #multiplayer {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.buttons:active {
     background: #0787B3;
 }
 
-#bnt-firststart:disabled {
+.buttons:disabled {
     color: #444;
     background: #CECECE;
 }
