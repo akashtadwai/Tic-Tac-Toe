@@ -16,7 +16,7 @@ var human = -1;
 function clicked(help) {
     $('.game').hide();
     $('#how').hide();
-    $('.content').fadeIn(1000);
+    $('.content').fadeIn(500);
 }
 $('.close').click(function () {
     $('.content').hide();
@@ -160,6 +160,8 @@ function minimax(state, depth, alpha, beta, player) {
 
 /* It calls the minimax function */
 function aiTurn() {
+    var bnt2 = document.getElementById("multiplayer");
+    if (emptyCells(board).length < 9) bnt2.disabled = true;
     var x, y;
     var move;
     var cell;
@@ -279,7 +281,7 @@ function restartBnt(button) {
     $(table).css("border-radius", "20px");
     var btn1 = document.getElementById("bnt-firststart");
     var bnt2 = document.getElementById("multiplayer");
-    bnt2.disabled=false;
+    bnt2.disabled = false;
     btn1.disabled = false;
     msg = $('#message');
     $(msg).html("");

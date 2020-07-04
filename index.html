@@ -4,22 +4,27 @@
 		Author: Akash Tadwai
 		Year: 2020
 		-->
-<html>
+<html lang="en">
 
     <head>
         <meta charset="UTF-8" />
         <meta content="Akash Tadwai" name="author" />
-        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Tic-Tac-Toe game with Minimax algorithm and alpha-beta Pruning">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Tic-Tac-Toe</title>
         <link type="text/css" rel="stylesheet" href="styles/normalize.css" />
         <link type="text/css" rel="stylesheet" href="styles/board.css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,900italic+Open+Sans" rel="stylesheet">
-
-        <title>Minimax Algorithm</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
 
     <body>
-        <div id="how" onclick="clicked(this)"><span id="howto">HOW TO?</span></div>
+        <div class="container">
+            <div id="how" onclick="clicked(this)"><span id="howto">HOW TO?</span></div>
+        </div>
 
         <!-- Instructions -->
 
@@ -60,50 +65,66 @@
                 <h1>
                     <div class="heading"> <span id="tic">Tic</span> - <span id="tac">Tac</span> - <span id="toe"> Toe
                         </span> </div> <span id="invalid"> Invalid Selection</span>
-
                 </h1>
 
             </header>
             <p id="message"></p>
 
-
-            <table id="tic-tac-toe" cellspacing="0" style="width:auto">
-                <tr>
-                    <td id="00" onclick="clickedCell(this)"></td>
-                    <td id="01" onclick="clickedCell(this)"></td>
-                    <td id="02" onclick="clickedCell(this)"></td>
-                </tr>
-                <tr>
-                    <td id="10" onclick="clickedCell(this)"></td>
-                    <td id="11" onclick="clickedCell(this)"></td>
-                    <td id="12" onclick="clickedCell(this)"></td>
-                </tr>
-                <tr>
-                    <td id="20" onclick="clickedCell(this)"></td>
-                    <td id="21" onclick="clickedCell(this)"></td>
-                    <td id="22" onclick="clickedCell(this)"></td>
-                </tr>
+            <table class="table" cellspacing="0" style="width:auto">
+                <tbody>
+                        <tr>
+                            <td id="00" onclick="clickedCell(this)"></td>
+                            <td id="01" onclick="clickedCell(this)"></td>
+                            <td id="02" onclick="clickedCell(this)"></td>
+                        </tr>
+                        <tr>
+                            <td id="10" onclick="clickedCell(this)"></td>
+                            <td id="11" onclick="clickedCell(this)"></td>
+                            <td id="12" onclick="clickedCell(this)"></td>
+                        </tr>
+                        <tr>
+                            <td id="20" onclick="clickedCell(this)"></td>
+                            <td id="21" onclick="clickedCell(this)"></td>
+                            <td id="22" onclick="clickedCell(this)"></td>
+                        </tr>
+                </tbody>
             </table>
 
-            <br>
+
             <div class="players">
-                <input type="button" class="buttons" value="Start AI" id="bnt-firststart" onclick="firstStart(this)" />
-                &nbsp &nbsp
-                <input type="button" class="buttons" value="Play with Friend" id="multiplayer"
-                    onclick="multiPlayer(this)" />
-            </div> &nbsp &nbsp
-            <input type="button" value="Restart" class="buttons" id="bnt-restart" onclick="restartBnt(this)" />
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-sm">
+                            <input type="button" class="buttons" value="Start AI" id="bnt-firststart"
+                                onclick="firstStart(this)" /> &nbsp;
+                        </div>
+                        <div class="col-sm">
+                            <input type="button" value="Restart" class="buttons" id="bnt-restart"
+                                onclick="restartBnt(this)" /> &nbsp;
+                        </div>
+                        <div class="col-sm">
+                            <input type="button" class="buttons" value="Play with Friend" id="multiplayer"
+                                onclick="multiPlayer(this)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <footer>
-                <span id="color">Read more on: </span>
-                <a href="https://github.com/akashtadwai/Tic-Tac-Toe/blob/master/README.md" target="_blank">
-                    <img src="images/GitHub-Mark-120px-plus.png" alt="Minimax" width="60" height="60" border="0">
-                </a>
 
-            </footer>
+            <div class="container">
+                <div class="row row-col-1">
+                    <div class="col-sm">
+                        <span id="color">Read more on: </span>
+                        <a href="https://github.com/akashtadwai/Tic-Tac-Toe/blob/master/README.md" target="_blank">
+                            <img src="images/GitHub-Mark-120px-plus.png" alt="Minimax" width="60" height="60"
+                                border="0">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="app/script.js"></script>
     </body>
 
