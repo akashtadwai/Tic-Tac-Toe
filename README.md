@@ -3,7 +3,7 @@
 This is an implementation of Minimax AI Algorithm with alpha-beta pruning on Tic-Tac-Toe game. Try it [here]().
 
 <p align="center">
-	<img src="images/game.png" alt="Sample Game" width=40% height=40%></img>
+ <img src="images/game.png" alt="Sample Game" width=40% height=40%></img>
 </p>
 
 ## What is Minimax and alpha-beta pruning

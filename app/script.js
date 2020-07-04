@@ -185,6 +185,7 @@ function aiTurn() {
     }
 }
 
+/* Highlights the line in which all are matched */
 
 function filledRows() {
     var lines;
@@ -286,7 +287,8 @@ function clickedCell(cell) {
     }
 }
 
-/* Restart the game*/
+/* ***First-Start Button ***/
+
 function firstStart(button) {
     var bnt2 = document.getElementById("multiplayer");
     bnt2.disabled = true;
@@ -296,12 +298,15 @@ function firstStart(button) {
     }
 }
 
+/* *****Multi-Player Functionality ******/
 function multiPlayer(button) {
     var aiStart = document.getElementById("bnt-firststart");
     aiStart.disabled = true;
     button.disabled = true;
     multi_player = true;
 }
+
+/* Restart the game*/
 
 function restartBnt(button) {
     first = true;
