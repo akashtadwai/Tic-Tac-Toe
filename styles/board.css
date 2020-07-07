@@ -3,8 +3,11 @@ body {
     height: 100%;
     width: 96%;
     background-color: #333;
-    background: url("../images/back.jpg") repeat 0 0;
+    background: url("../images/back.jpg") no-repeat center center fixed;
     min-height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,7 +17,6 @@ body {
 }
 
 /* Instructions */
-
 #how {
     z-index: 1;
     cursor: pointer;

@@ -9,11 +9,38 @@ var AI = +1;
 var human = -1;
 var multi_player = false;
 var first = true;
+var undo = [];
 
 $(function () {
     $('.content').hide();
     $('#invalid').hide();
 });
+$(document).keydown(function (e) {
+    var lastPlayer = null;
+    if (e.which == 88) {
+        if (undo.length) {
+            if (!multi_player) {
+                Clear(undo, lastPlayer);
+                if (undo.length)
+                    Clear(undo, lastPlayer);
+            }
+            else {
+                first = !first;
+                Clear(undo, lastPlayer);
+            }
+
+        }
+    }
+});
+function Clear(undo, lastPlayer) {
+    lastPlayer = undo.pop();
+    var x = lastPlayer[0];
+    var y = lastPlayer[1];
+    var pos = x.toString() + y.toString();
+    $('#' + pos).html("");
+    board[x][y] = 0;
+    console.log(board);
+}
 
 function clicked(help) {
     $('.game').hide();
@@ -180,6 +207,7 @@ function aiTurn() {
     if (setMove(x, y, AI)) {
         var pos = String(x) + String(y);
         cell = $('#' + pos);
+        undo.push([x, y, AI]);
         $(cell).html("O");
         $(cell).css("color", "red");
     }
@@ -244,6 +272,7 @@ function clickedCell(cell) {
         }
         if (multi_player == false) {
             if (move == true) {
+                undo.push([x, y, human]);
                 $(cell).html("X");
                 $(cell).css("color", "blue");
                 if (conditionToContinue)
@@ -253,11 +282,13 @@ function clickedCell(cell) {
         else if (multi_player == true) {
             if (first == true && move == true) {
                 first = false;
+                undo.push([x, y, human]);
                 $(cell).html("X");
                 $(cell).css("color", "blue");
             }
             else if (first == false && move == true) {
                 first = true;
+                undo.push([x, y, AI]);
                 $(cell).html("O");
                 $(cell).css("color", "red");
             }
@@ -309,6 +340,7 @@ function multiPlayer(button) {
 /* Restart the game*/
 
 function restartBnt(button) {
+    undo.length = 0;
     first = true;
     multi_player = false;
     var htmlBoard;
