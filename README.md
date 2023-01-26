@@ -1,6 +1,6 @@
 # Tic-Tac-Toe
 
-This is an implementation of Minimax AI Algorithm with alpha-beta pruning on Tic-Tac-Toe game. Try it [here](Tic-Tac-Toe game with Minimax algorithm and alpha-beta Pruning).
+This is an implementation of Minimax AI Algorithm with alpha-beta pruning on Tic-Tac-Toe game. Try it [here](https://akashtadwai.github.io/Tic-Tac-Toe/).
 
 <p align="center">
  <img src="images/game.png" alt="Sample Game" width=40% height=40%></img>
