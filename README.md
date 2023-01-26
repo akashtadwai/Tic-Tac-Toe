@@ -1,6 +1,6 @@
-# Tic-Tac-Toe	[![Build Status](https://dev.azure.com/akashadarshtadwai/Tic-Tac-Toe/_apis/build/status/akashtadwai.Tic-Tac-Toe%20(1)?branchName=master)](https://dev.azure.com/akashadarshtadwai/Tic-Tac-Toe/_build/latest?definitionId=9&branchName=master)
+# Tic-Tac-Toe
 
-This is an implementation of Minimax AI Algorithm with alpha-beta pruning on Tic-Tac-Toe game. Try it [here](https://tictactoe-akashtadwai.herokuapp.com/).
+This is an implementation of Minimax AI Algorithm with alpha-beta pruning on Tic-Tac-Toe game. Try it [here](Tic-Tac-Toe game with Minimax algorithm and alpha-beta Pruning).
 
 <p align="center">
  <img src="images/game.png" alt="Sample Game" width=40% height=40%></img>
